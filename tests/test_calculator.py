@@ -6,13 +6,13 @@ def test_addition():
     assert add(2,2) == 4
 
 def test_subtraction():
-    '''Test that addition function works '''    
+    '''Test that subtraction function works '''    
     assert subtract(2,2) == 0
     
 def test_multiply():
-    '''Test that addition function works '''    
+    '''Test that multiplication function works '''    
     assert multiply(3,2) == 6
     
 def test_divide():
-    '''Test that addition function works '''    
+    '''Test that division function works '''    
     assert divide(8,2) == 4
