@@ -1,1 +1,1 @@
-This is IS601 second assignment.
+This is IS601 calculator assignment.
