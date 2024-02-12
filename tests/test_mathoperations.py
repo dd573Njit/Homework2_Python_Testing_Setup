@@ -1,15 +1,37 @@
-'''My Calculator Test'''
-from calculator import add, subtract, multiply, divide
-def test_addition():
-    '''Test that addition function works '''
-    assert add(2,2) == 4
-def test_subtraction():
-    '''Test that subtraction function works '''
-    assert subtract(2,2) == 0
-def test_multiply():
-    '''Test that multiplication function works '''
-    assert multiply(3,2) == 6
-def test_divide():
-    '''Test that division function works '''  
-    assert divide(8,2) == 4
-    
+'''Testing Operations'''
+from decimal import Decimal
+import pytest
+from calculator.calculation import Calculation
+from calculator.mathoperations import add, subtract, multiply, divide, sqrt
+
+
+def test_operation_add():
+    '''Testing the addition operation'''
+    calculation = Calculation(Decimal('10'), Decimal('5'), add)
+    assert calculation.perform() == Decimal('15'), "Add operation failed"
+
+def test_operation_subtract():
+    '''Testing the subtract operation'''
+    calculation = Calculation(Decimal('10'), Decimal('5'), subtract)
+    assert calculation.perform() == Decimal('5'), "Subtract operation failed"
+
+def test_operation_multiply():
+    '''Testing the multiply operation'''
+    calculation = Calculation(Decimal('10'), Decimal('5'), multiply)
+    assert calculation.perform() == Decimal('50'), "Multiply operation failed"
+
+def test_operation_divide():
+    '''Testing the divide operation'''
+    calculation = Calculation(Decimal('10'), Decimal('5'), divide)
+    assert calculation.perform() == Decimal('2'), "Divide operation failed"
+
+def test_divide_by_zero():
+    '''Testing the divide by zero exception'''
+    with pytest.raises(ValueError, match="Cannot divide by zero"):
+        calculation = Calculation(Decimal('10'), Decimal('0'), divide)
+        calculation.perform()
+        
+def test_square_root():
+    '''Test square root of a number'''
+    calculation = Calculation(a = Decimal('100'), singleOperation = sqrt)
+    assert calculation.perform_single() == Decimal('10'), "Square root operation failed"

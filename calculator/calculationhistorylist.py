@@ -23,7 +23,7 @@ class CalculationHistoryList:
         if cls.history:
             return cls.history[-1]
         return None
-
     @classmethod
     def find_by_math_operation(cls, operation_name: str) -> List[Calculation]:
-        return [calc for calc in cls.history if calc.operation.__name__ == operation_name]
+        return [calc for calc in cls.history if ((calc.operation and calc.operation.__name__ == operation_name) or (calc.singleOperation and calc.singleOperation.__name__ == operation_name)) and operation_name is not None]
+    
