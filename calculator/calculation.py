@@ -22,7 +22,7 @@ class Calculation:
     def perform_single(self) -> Decimal:
         return self.singleOperation(self.a)
     
-    def __repr__(self):
+    def repr(self):
         if self.operation is not None:
             operation_name = self.operation.__name__
             return f"Calculation({self.a}, {self.b}, {operation_name})"

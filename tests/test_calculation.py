@@ -21,12 +21,12 @@ def test_calculation_operations(a, b, operation, expected):
 def test_calculation_repr():
     calc = Calculation(Decimal('10'), Decimal('5'), add)
     expected_repr = "Calculation(10, 5, add)"
-    assert calc.__repr__() == expected_repr, "The __repr__ method output does not match the expected string."
+    assert calc.repr() == expected_repr, "The repr method output does not match the expected string."
     
 def test_single_calculation_repr():
     calc = Calculation(a = Decimal('100'), singleOperation = sqrt)
     expected_repr = "Calculation(100, sqrt)"
-    assert calc.__repr__() == expected_repr, "The __repr__ method output does not match the expected string."
+    assert calc.repr() == expected_repr, "The repr method output does not match the expected string."
 
 def test_divide_by_zero():
     calc = Calculation(Decimal('10'), Decimal('0'), divide)

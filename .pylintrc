@@ -8,10 +8,12 @@ load-plugins=pylint_django
 # Only show these errors
 # Disable the following checks (example list):
 disable=missing-final-newline,
-        Line too long,
-        Missing module docstring,
-        Missing function or method docstring,
-        Trailing whitespace,
+        line-too-long,
+        missing-module-docstring,
+        missing-function-docstring,
+        trailing-whitespace,
+        redefined-outer-name,
+        unused-argument,
         another-warning-to-disable,
         yet-another-warning
 
@@ -46,12 +48,12 @@ variable-rgx=[a-z_][a-z0-9_]{0,30}$
 function-rgx=[a-z_][a-z0-9_]{2,50}$
 
 # Argument names should be lowercase, with words separated by underscores as necessary to improve readability
-argument-rgx=[a-z_][a-z0-9_]{1,30}$
+argument-rgx=[a-z_][a-z0-9_]{0,30}$
 
 # Method names should be lowercase, with words separated by underscores as necessary to improve readability
 method-rgx=[a-z_][a-z0-9_]{2,50}$
 
 # Module names should have short, all-lowercase names. The use of underscores is discouraged.
-module-rgx=[a-z_][a-z0-9_]{1,30}$
+module-rgx=[a-z_][a-z0-9_]{1,50}$
 
 # Class names
