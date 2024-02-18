@@ -10,6 +10,7 @@ class Calculator:
         CalculationHistoryList.store_calculation(calculation)
         return calculation.perform()
     
+    @staticmethod # need to add static other Python expects the first argument to be self (the instance of the class), which might lead to incorrect argument passing,
     def _perform_single_operation(a: Decimal, singleOperation: Callable[[Decimal], Decimal]) -> Decimal:
         calculation = Calculation.createForSingleOpr(a = Decimal(a), singleOperation = singleOperation)
         CalculationHistoryList.store_calculation(calculation)

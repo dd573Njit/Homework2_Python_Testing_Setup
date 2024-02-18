@@ -15,4 +15,6 @@ def divide(a: Decimal, b: Decimal) -> Decimal:
     return a / b
 
 def sqrt(a: Decimal) -> Decimal:
-    return math.sqrt(a)
+    if a < 0:
+        raise ValueError("Number cannot be negative")
+    return Decimal(math.sqrt(float(a)))
