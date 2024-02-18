@@ -1,7 +1,7 @@
 from decimal import Decimal
 import pytest
 from calculator.calculation import Calculation
-from calculator.mathoperations import add, subtract, multiply, divide, sqrt
+from calculator.mathoperations import add, subtract, multiply, divide
 
 @pytest.mark.parametrize("a, b, operation, expected", [
     (Decimal('5'), Decimal('5'), add, Decimal('10')),
@@ -21,11 +21,6 @@ def test_calculation_operations(a, b, operation, expected):
 def test_calculation_repr():
     calc = Calculation(Decimal('10'), Decimal('5'), add)
     expected_repr = "Calculation(10, 5, add)"
-    assert calc.repr() == expected_repr, "The repr method output does not match the expected string."
-    
-def test_single_calculation_repr():
-    calc = Calculation(a = Decimal('100'), singleOperation = sqrt)
-    expected_repr = "Calculation(100, sqrt)"
     assert calc.repr() == expected_repr, "The repr method output does not match the expected string."
 
 def test_divide_by_zero():

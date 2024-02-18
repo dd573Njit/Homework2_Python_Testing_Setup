@@ -35,3 +35,9 @@ def test_square_root():
     '''Test square root of a number'''
     calculation = Calculation(a = Decimal('100'), singleOperation = sqrt)
     assert calculation.perform_single() == Decimal('10'), "Square root operation failed"
+    
+def test_negative_square_root():
+    '''Test if the input number is negative'''
+    with pytest.raises(ValueError, match = "Number cannot be negative"):
+        calculation = Calculation(a = Decimal('-100'), singleOperation = sqrt)
+        calculation.perform_single()
